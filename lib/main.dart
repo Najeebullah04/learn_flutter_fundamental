@@ -6,9 +6,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyWidget(),
     );
   }
@@ -38,7 +40,7 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('title'),),
+          title: const Text('title'),),
           body: Column(
             children: [
               Slider(
@@ -66,7 +68,7 @@ class _MyWidgetState extends State<MyWidget> {
                     });
                   }),
                   CheckboxListTile(
-        title: const Text('Animate Slowly'),
+        title: const Text('Animate Slowly.'),
         value: timeDilation != 1.0,
         onChanged: (bool? value) {
           setState(() {
@@ -149,8 +151,8 @@ class _MyWidgetState extends State<MyWidget> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Text(
               'Footer Widget',
               style: TextStyle(fontSize: 24),
