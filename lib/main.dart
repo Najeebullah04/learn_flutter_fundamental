@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -40,7 +40,52 @@ class _MyWidgetState extends State<MyWidget> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('title'),),
+          title: const Text('title'),
+              leading: Builder(
+      builder: (context) {
+        return IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+        );
+      },
+    ),),
+          drawer:Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.blue
+                  ),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                    backgroundImage:  AssetImage('assets/se.png'),
+                    radius: 40,
+                    backgroundColor: Colors.white,
+                  ),
+                  SizedBox(height: 10,),
+                  Text('ScanEase'),
+                    ],
+                  ), 
+                  ),
+                  ListTile(
+                    title: Text('item1'),
+                    onTap: ()=>{},
+                  ),
+                  ListTile(
+                    title: Text('item2'),
+                    onTap: ()=>{},
+                  ),
+                  ListTile(
+                    title: Text('item3'),
+                    onTap: ()=>{},
+                  ),
+              ],
+            ),
+          ),
           body: Column(
             children: [
               Slider(
